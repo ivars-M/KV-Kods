@@ -1,0 +1,17 @@
+.container {
+  display: flex;
+  justify-content: top;
+  align-items: flex-start;
+  flex-direction: column;
+
+  margin-top: 10px;
+  margin-left: 0px;
+
+  /* border: 10px solid; */
+  /* border-color: red; */
+
+  padding-left: 20%;
+  padding-top: 5px;
+  gap: 2px;
+  height: 100vh;
+}
