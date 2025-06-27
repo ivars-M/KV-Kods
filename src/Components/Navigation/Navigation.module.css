@@ -1,6 +1,17 @@
 .container {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   margin-bottom: 30px;
+  padding: 20px;
+  background-color: #f0f0f0;
+  border: 10px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border-color: blue;
   gap: 10px;
+
+  text-decoration: none;
+  color: #333;
+  font-size: 3cap;
+  font-weight: bold;
 }
