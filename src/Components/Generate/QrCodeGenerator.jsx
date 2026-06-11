@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { QRCodeSVG } from "qrcode.react";
 import { GENERATE_DATA } from "../../constants";
+import { appendToArray, createHistoryItem } from "../../utils/storage";
 
 import s from "./qrCodeGenerator.module.css";
 
@@ -9,10 +10,10 @@ export const QrCodeGenerator = () => {
   const [result, setResult] = useState("");
 
   const onClickHandler = () => {
-    const prevData = JSON.parse(localStorage.getItem(GENERATE_DATA) || "[]");
-
-    localStorage.setItem(GENERATE_DATA, JSON.stringify([...prevData, value]));
-    setResult(value);
+    const item = createHistoryItem(value);
+    if (!item.text) return;
+    appendToArray(GENERATE_DATA, item, { limit: 50 });
+    setResult(item.text);
     setValue("");
   };
 
@@ -20,8 +21,6 @@ export const QrCodeGenerator = () => {
     setValue(event.target.value);
     setResult("");
   };
-
-  console.log("result:", result);
 
   return (
     <div className={s.container}>
@@ -43,35 +42,3 @@ export const QrCodeGenerator = () => {
     </div>
   );
 };
-
-/*import { useState } from "react";
-import { QRCodeSVG } from "qrcode.react";
-
-export const QrCodeGenerator = () => {
-  const [value, setValue] = useState("hello");
-  const [result, setResult] = useState("");
-  const onClickHandler = (event) => {
-    setResult(value);
-    setValue("");
-  };
-
-  const onChangeHandler = (event) => {
-    setValue(event.target.value);
-    setResult("");
-  };
-
-  console.log("result:", result);
-
-  return (
-    <div>
-      {" "}
-      {result !== "" && <QRCodeSVG value={result} />}{" "}
-      <input type="text" value={value} onChange={onChangeHandler} />{" "}
-      <button type="button" onClick={onClickHandler}>
-        {" "}
-        Ģenerēt QR{" "}
-      </button>
-    </div>
-  );
-};
-*/

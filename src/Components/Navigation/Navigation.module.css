@@ -1,17 +1,18 @@
 .container {
   display: flex;
-  justify-content: space-around;
+  width: 15%;
+  flex-direction: column;
   margin-bottom: 30px;
   padding: 20px;
   background-color: #f0f0f0;
   border: 10px solid #ccc;
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  border-color: blue;
+  border-color: rgb(123, 123, 235);
   gap: 10px;
 
   text-decoration: none;
   color: #333;
-  font-size: 3cap;
+  font-size: 2cap;
   font-weight: bold;
 }
